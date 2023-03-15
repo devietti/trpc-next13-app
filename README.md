@@ -1,6 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a small proof-of-concept showing how to get [tRPC](https://trpc.io) working with the [Next 13 `app` directory](https://beta.nextjs.org/docs/getting-started), all in TypeScript. All of the code is drawn from [the tRPC tutorial](https://trpc.io/docs/react), [here](https://github.com/trpc/trpc/issues/3297), and [here](https://github.com/trpc/next-13). Some attempt has been made to minimize the example code.
 
-## Getting Started
+**Note** this code contains only an example of performing an RPC from a *Client Component*. I am not sure how to get tRPC calls working from a React Server Component, tbh, but it seems like this is an area [of active investigation](https://github.com/trpc/trpc/issues/3297).
+
+## Running
 
 First, run the development server:
 
@@ -12,27 +14,14 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. A simple page displays the result of a tRPC call. You can edit `MyRpcClientComponent.tsx` to change the query being made, or `trpc-server.ts` to change the "API" and see that the client and server both fail to compile.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Recreating
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+npx create-next-app@latest --experimental-app trpc-next
+cd trpc-next/
+npm install @trpc/client @trpc/react-query @tanstack/react-query @trpc/server zod
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This should be the basics needed if you want to incorporate this into an existing project.
