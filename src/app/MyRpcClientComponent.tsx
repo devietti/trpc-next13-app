@@ -14,7 +14,7 @@ export default function MyRpcClientComponent(): JSX.Element {
 
     return (
         <p>
-            Hello, {name.data!.name}
+            Hello, {name.data!.name}, greetings from client component land!
         </p>
     )
 }
