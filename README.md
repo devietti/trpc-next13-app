@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Recreating
 
 ```
-npx create-next-app@latest --experimental-app trpc-next
+npx create-next-app@latest trpc-next
 cd trpc-next/
 npm install @trpc/client @trpc/react-query @tanstack/react-query @trpc/server zod
 ```
